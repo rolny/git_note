@@ -1,13 +1,20 @@
 # Git Note
 ## _QuickStart_
-
-1. `touch .gitignore` 
-2. `git init`
-3. `git add -a`
-4. `git status`
-5. `git commit -m 'mesage'`
-6. `git log`
-
+### First time push to remote repo(GitHub)
+```commandline
+touch .gitignore 
+git init
+git add -a
+git status
+git commit -m 'mesage'
+git branch -M main
+git remote add origin https://github.com/rolny/git.git
+git push -u origin main
+```
+### Update local repo to remote repo(GitHub)
+```commandline
+git status
+```
 
 ## Setting user info
 Every **Repository** has own config
@@ -144,4 +151,68 @@ node_modules
 packages/react-devtools-core/dist
 *.crx
 ```
-## Git remote 
+## Git remote operation script
+### git remote
+Use `git remote` we can check all remote repo **short**
+```commandline
+$ git remote
+origin
+```
+add `-v` can show url of remote repo
+```commandline
+$ git remote -v
+origin  https://github.com/rolny/git_note.git (fetch)
+origin  https://github.com/rolny/git_note.git (push)
+```
+Add remote repo to local repo use `add`
+```commandline
+git remote add <remote repo short> <url>
+```
+### Download git from remote
+- _**git clone**_
+  
+  Clone entire git repository
+  ```commandline
+  git clone <url>
+  ```
+  Clone with other name
+  ```commandline
+  git clone <url> <local repo name>
+  ```
+- _**git fetch**_
+  
+  Download branch from remote repository
+  ```commandline
+  git fetch <remote repo short> <remote branch>
+  ```
+  - Fetch didn't combine local repo and remo repo, therefore after done `git fetch`
+    we need use `git merge` for merge both branch
+  
+  #### Two ways for use git fetch to update local repo
+  #### 1. 
+  ```commandline
+  git fetch origin master              #download branch
+  git log -p master.. origin/master    #compare diffrent between two repo
+  git merge origin/master              #merge 
+  ```
+  #### 2.
+  ```commandline 
+  git fetch origin master:temp        #downlaod branch master of repo origin and crete
+  git diff temp                       #compare diffrent between two repo
+  git merge temp                      #merge branch temp to branch master
+  git brach -d temp                   #delete temp
+  ```
+- _**git pull**_
+  
+  Download remote repo to local repo. Basically, _git pull_ equivalent to fetch 
+  the latest version from remote repo, then merge local branch
+- ```commandline
+  git pull <remote repo> <remote branch>:<local branch>
+  ```
+  <a>git pull = git fetch + merge</a>
+### git push
+Push the local repo to branch **master** of remote repo **origin**
+```commandline
+git push -u origin master
+```
+
