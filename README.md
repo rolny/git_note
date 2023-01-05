@@ -6,14 +6,10 @@ touch .gitignore
 git init
 git add -a
 git status
-git commit -m 'mesage'
+git commit -m 'message'
 git branch -M main
 git remote add origin https://github.com/rolny/git.git
 git push -u origin main
-```
-### Update local repo to remote repo(GitHub)
-```commandline
-git status
 ```
 
 ## Setting user info
@@ -80,7 +76,7 @@ We will get the log,which is top to bottom from new to old
 git log <version>
 ```
 <dl>
-<dt><a>--online</a></dt>
+<dt><a>--oneline</a></dt>
 <dd>a concise output</dd>
 <dt><a> file </a></dt>
 <dd></dd>
@@ -200,7 +196,7 @@ git remote add <remote repo short> <url>
   git fetch origin master:temp        #downlaod branch master of repo origin and crete
   git diff temp                       #compare diffrent between two repo
   git merge temp                      #merge branch temp to branch master
-  git brach -d temp                   #delete temp
+  git branch -d temp                   #delete temp
   ```
 - _**git pull**_
   
