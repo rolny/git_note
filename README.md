@@ -4,7 +4,7 @@
 ```commandline
 touch .gitignore 
 git init
-git add -a
+git add -A
 git status
 git commit -m 'message'
 git branch -M main
